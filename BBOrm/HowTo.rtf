@@ -1,0 +1,65 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red43\green131\blue159;\red163\green21\blue21;\red0\green0\blue255;
+\red0\green128\blue0;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+Installation:\
+\
+Drag the framework into your project\
+\
+To set an API url:\
+\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \CocoaLigature0 BBManager\cf0 .\cf2 initialize\cf0 (\cf3 "https://yourapiurl.com"\cf0 )\
+\
+To activate debug mode:\
+\
+\cf2 BBManager\cf0 .isDebug = \cf4 true
+\f0\fs24 \cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+Now Just subclass the BBObject to get savable objects!\
+\
+Your object is saved with the Table name = Your class name. If you want to change it just override 
+\f1\fs22 \CocoaLigature0 \
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf0     \
+\cf4 public\cf0  \cf4 override\cf0  \cf4 func\cf0  getClassName() -> \cf2 String\cf0  \{\
+   \cf4 return\cf0  \cf3 "YOURTABLENAME"\cf0 \
+\}\
+\
+BE CAREFUL: If you subclass your object, the most Child Class is predominant so take care about SubSubClassing your api objects\
+\
+If you want some properties to be ignored by the API, name it as myproperty_\
+\
+Identifiers:\
+\
+You can change the id property for the object\
+\
+BBManager.objIdDefault = \cf3 "id"\cf0 \
+   \
+You can also override it for a specific class\
+\
+\cf4 public\cf0  \cf4 override func\cf0  getObjectId() -> \cf2 String\cf0 \{\
+	\cf4 return\cf0  \cf3 "myobjectId"\cf2 \
+\cf0 \}\
+\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf5 IMPORTANT: You have to check if getObjectIdString is a real property of your object and if your objectId type can be cast in String if you change the id property\cf0 \
+\
+\cf5 To provide your own API Routes for custom API :\
+\
+Default :\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf0 getString: \cf2 String\cf0  = \cf3 "/"\cf0 \
+getAllString: \cf2 String\cf0  = \cf3 "/"\cf0 \
+createString: \cf2 String\cf0  = \cf3 "/create"\cf0 \
+updateString: \cf2 String\cf0  = \cf3 "/update"\cf0 \
+deleteString: \cf2 String\cf0  = \cf3 "/destroy"\cf5 \
+\cf0 \
+\cf4 BBAPIRoutes.\cf0 setRoutes(getString: \cf2 String\cf0 ,getAllString: \cf2 String\cf0 ,createString: \cf2 String\cf0 ,updateString: \cf2 String\cf0 ,deleteString: \cf2 String\cf0 )\
+}
