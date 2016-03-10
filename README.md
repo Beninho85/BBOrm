@@ -3,7 +3,7 @@ Framework for consuming RESTFull API like an ORM
 
 This framework is optimized for a Sails.js Rest API
 
-WARNING: THIS IS A PRE-APLHA VERSION
+WARNING: THIS IS A PRE-APLHA VERSION, DO NOT USE IT FOR THE MOMENT
 
 Installation:
 
